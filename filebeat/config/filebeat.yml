@@ -1,0 +1,8 @@
+filebeat.inputs:
+    - type: log
+      enabled: true
+      paths:
+        - /var/log/*.txt
+
+output.logstash:
+    hosts: ["host.docker.internal:5044"]
