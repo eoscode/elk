@@ -1,4 +1,4 @@
-version: '3.2'
+version: '3.8'
 services:
   elasticsearch:
     build:
@@ -9,7 +9,7 @@ services:
       - 9200:9200
       - 9300:9300
     environment:
-      ES_JAVA_OPTS: "-Xms1024m -Xmx1024m"
+      ES_JAVA_OPTS: "-Xms3g -Xmx3g"
       #ELASTIC_PASSWORD: changeme
       discovery.type: single-node
     ulimits:
@@ -44,7 +44,8 @@ services:
     ports:
       - "5000:5000/tcp"
       - "5000:5000/udp"
-      - "9600:9600"  
+      - "9600:9600" 
+      - "5044:5044" 
     networks:
       - elk
     #command: logstash -f /config/product.logstash.conf  
